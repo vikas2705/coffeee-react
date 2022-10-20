@@ -1,3 +1,5 @@
+import MyComponent2 from "./MyComponent2";
+
 const MyComponent = () => {
     const message = "React is interesting!!";
 
@@ -5,6 +7,7 @@ const MyComponent = () => {
         <div>
             <h2>This is a new component</h2>
             <p>{message}</p>
+            <MyComponent2 />
         </div>
     );
 };

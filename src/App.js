@@ -1,29 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
+import ClassCommponent from "./ClassComponent";
 import cube from "./helper";
 import { square } from "./helper";
 import MyComponent from "./MyComponent";
-import NewCompWithProps from "./NewCompWithProps";
+import FuncComponent from "./FuncComponent";
 
 function App() {
-    const message = () => {
-        return "Welcome to Coffeee";
+    const [name, setName] = useState("Vikas");
+    const [showFuncComponent, setShowFuncComponent] = useState(false);
+
+    const changeName = () => {
+        setName(name + "new");
     };
 
-    const name = "Vikas";
+    const changeView = () => {
+        setShowFuncComponent(!showFuncComponent);
+    };
+
+    console.log("parent is re-rendered");
+    /* const message = () => {
+        return "Welcome to Coffeee";
+    };*/
 
     return (
         <div className='App'>
             <h1>Coffee sample app</h1>
-            <>
+            <button onClick={changeName}> change name </button>
+            {showFuncComponent ? (
+                <FuncComponent name={name} age='29' />
+            ) : (
+                <ClassCommponent />
+            )}
+
+            <button onClick={changeView}>Change view</button>
+            {/*<>
                 <MyComponent />
                 <p> the cube of 15 is {cube(15)}</p>
                 <div>{message()}</div>
                 <h2>Welcome, {name}</h2>
-                <NewCompWithProps name='Vikas' age='29' />
-                <NewCompWithProps name='Anil' age='30' />
-                <NewCompWithProps name='Saurabh' age='28' />
-            </>
+                <FuncComponent name={name} age='29' />
+                <FuncComponent name='Anil' age='30' />
+                <FuncComponent name='Saurabh' age='28' />
+            </>*/}
         </div>
     );
 }
