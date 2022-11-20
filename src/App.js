@@ -5,6 +5,7 @@ import cube from "./helper";
 import { square } from "./helper";
 import MyComponent from "./MyComponent";
 import FuncComponent from "./FuncComponent";
+import ReactHooksComp from "./react-hooks";
 
 function App() {
     const [name, setName] = useState("Vikas");
@@ -18,14 +19,15 @@ function App() {
         setShowFuncComponent(!showFuncComponent);
     };
 
-    console.log("parent is re-rendered");
+    //console.log("parent is re-rendered");
     /* const message = () => {
         return "Welcome to Coffeee";
     };*/
 
     return (
         <div className='App'>
-            <h1>Coffee sample app</h1>
+            <ReactHooksComp />
+            {/* <h1>Coffee sample app</h1>
             <button onClick={changeName}> change name </button>
             {showFuncComponent ? (
                 <FuncComponent name={name} age='29' />
@@ -34,7 +36,7 @@ function App() {
             )}
 
             <button onClick={changeView}>Change view</button>
-            {/*<>
+           <>
                 <MyComponent />
                 <p> the cube of 15 is {cube(15)}</p>
                 <div>{message()}</div>
